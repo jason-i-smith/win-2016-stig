@@ -1,0 +1,8 @@
+- hosts: all
+  vars:
+    - win2016stig_cat1_patch: yes
+  roles:
+    - role: Windows-2016-STIG
+      when:
+        - ansible_os_family == 'Windows'
+        - ansible_distribution | regex_search('(Server 2016)')
